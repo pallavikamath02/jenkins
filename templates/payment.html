@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="payment-container">
+
+<h2>Payment</h2>
+
+<p>Total Amount: ₹{{ total }}</p>
+
+<button onclick="pay()">UPI</button>
+<button onclick="pay()">Card</button>
+<button onclick="pay()">Cash on Delivery</button>
+
+</div>
+
+<script>
+
+function pay(){
+
+alert("Payment Successful!")
+
+window.location="/order"
+
+}
+
+</script>
+
+</body>
+</html>

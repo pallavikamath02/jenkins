@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dress Collection</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="navbar">
+<h1>👗 FashionHub</h1>
+<a href="/">Home</a>
+</div>
+
+<h2 class="page-title">Our Collection</h2>
+
+<form action="/checkout" method="post">
+
+<div class="menu-container">
+
+{% for dress in dresses %}
+
+<div class="food-card">
+
+<h3>{{ dress.name }}</h3>
+
+<p class="price">₹{{ dress.price }}</p>
+
+<label>Quantity</label>
+
+<input type="number" name="{{ dress.name }}" min="0" value="0">
+
+</div>
+
+{% endfor %}
+
+</div>
+
+<div class="checkout-container">
+
+<button class="main-btn">Checkout</button>
+
+</div>
+
+</form>
+
+</body>
+</html>

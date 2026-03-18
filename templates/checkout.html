@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Checkout</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="checkout-box">
+
+<h2>Billing Summary</h2>
+
+<table>
+
+<tr>
+<th>Item</th>
+<th>Qty</th>
+<th>Price</th>
+</tr>
+
+{% for item in items %}
+
+<tr>
+
+<td>{{ item.name }}</td>
+<td>{{ item.qty }}</td>
+<td>₹{{ item.price }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<h2>Total: ₹{{ total }}</h2>
+
+<form action="/payment" method="post">
+
+<input type="hidden" name="total" value="{{ total }}">
+
+<button class="main-btn">Proceed to Payment</button>
+
+</form>
+
+</div>
+
+</body>
+</html>
